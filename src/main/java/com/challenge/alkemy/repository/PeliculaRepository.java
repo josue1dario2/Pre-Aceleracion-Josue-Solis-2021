@@ -11,8 +11,6 @@ import java.util.Set;
 @Repository
 public interface PeliculaRepository extends JpaRepository<PeliculaEntity,Long> {
 
-    PeliculaEntity findByDenominacionIgnoreCase(String denominacion);
-
     @Query(value = "SELECT * FROM pelicula p WHERE p.generoId = ?1 ",nativeQuery = true)
     List<PeliculaEntity> findByIdContinente(Long generoId);
 

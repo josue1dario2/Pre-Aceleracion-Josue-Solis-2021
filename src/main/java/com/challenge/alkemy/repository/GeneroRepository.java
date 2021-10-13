@@ -11,11 +11,7 @@ import java.util.Set;
 @Repository
 public interface GeneroRepository extends JpaRepository<GeneroEntity,Long> {
 
-    List<GeneroEntity> findByDenominacionIgnoreCase(String denominacion);
-
-    List<GeneroEntity> findByFechaDeCreacion(String fecha);
-
-    List<GeneroEntity> findByPeliculas(Long id);
+    //List<GeneroEntity> findByPeliculas(Long id);
 
     List<GeneroEntity> findAll(Specification<GeneroEntity> spec);
 

@@ -14,8 +14,6 @@ public interface PeliculaService  <T,ID>{
 
     public T findById(ID id)throws SpringException;
 
-    public T findByDenominacion(String denominacion)throws SpringException;
-
     public List<T> findByIdContinente(Long continenteId)throws SpringException;
     
     public T save(T entity)throws SpringException;

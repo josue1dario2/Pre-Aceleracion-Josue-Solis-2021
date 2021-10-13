@@ -11,11 +11,7 @@ import java.util.Set;
 @Repository
 public interface PersonajeRepository extends JpaRepository<PersonajeEntity,Long> {
 
-    List<PersonajeEntity> findByDenominacionIgnoreCase(String denominacion);
-
-    List<PersonajeEntity> findByFechaDeCreacion(String fecha);
-
-    List<PersonajeEntity> findByPelicula(Long id);
+    //List<PersonajeEntity> findByPelicula(Long id);
 
     List<PersonajeEntity> findAll(Specification<PersonajeEntity> spec);
 

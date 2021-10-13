@@ -111,19 +111,6 @@ public class PeliculaServiceImpl implements PeliculaService <PeliculaDto,Long>{
     }
 
     @Override
-    public PeliculaDto findByDenominacion(String denominacion) throws SpringException {
-        try{
-            PeliculaEntity pais = peliculaRepository.findByDenominacionIgnoreCase(denominacion);
-            if(pais == null){
-                throw new SpringException(ERROR_3);
-            }
-            return peliculaMapper.converToDto(pais,false);
-        }catch (SpringException e){
-            throw new SpringException(e.getMessage());
-        }
-    }
-
-    @Override
     public List<PeliculaDto> findByIdContinente(Long continenteId) throws SpringException {
         try{
             List<PeliculaEntity> paises  = peliculaRepository.findByIdContinente(continenteId);

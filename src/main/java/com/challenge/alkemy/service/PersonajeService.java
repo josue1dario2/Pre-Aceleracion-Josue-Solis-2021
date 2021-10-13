@@ -11,12 +11,6 @@ public interface PersonajeService <T,ID>{
 
     public List<T> findAllPersonajes()throws SpringException;
 
-    public List<T> getDenominacion(String denominacion)throws SpringException;
-
-    public List<T> getDate(String fecha)throws SpringException;
-
-    public List<T> getCities(Long idCity)throws SpringException;
-
     public T findById(ID id)throws SpringException;
 
     public T save(T entity)throws SpringException;

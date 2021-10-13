@@ -82,58 +82,6 @@ public class PersonajeServiceImpl implements PersonajeService <PersonajeDto,Long
     }
 
     @Override
-    public List<PersonajeDto> getDenominacion(String denominacion) throws SpringException {
-        try{
-            List<PersonajeDto> listaDto = new ArrayList<>();
-            List<PersonajeEntity> lista = personajeRepository.findByDenominacionIgnoreCase(denominacion);
-            if(lista.isEmpty()){
-                throw new SpringException(ERROR_3);
-            }
-            for(PersonajeEntity entity : lista){
-                listaDto.add(personajeMapper.convertToDto(entity,false));
-            }
-            return listaDto;
-        }catch (SpringException e){
-            throw new SpringException(e.getMessage());
-        }
-    }
-
-    @Override
-    public List<PersonajeDto> getDate(String fecha) throws SpringException {
-        try{
-            List<PersonajeDto> listaDto = new ArrayList<>();
-            List<PersonajeEntity> lista = personajeRepository.findByFechaDeCreacion(fecha);
-            if(lista.isEmpty()){
-                throw new SpringException(ERROR_4);
-            }
-            for(PersonajeEntity entity : lista){
-                listaDto.add(personajeMapper.convertToDto(entity,false));
-            }
-            return listaDto;
-        }catch (SpringException e){
-            throw new SpringException(e.getMessage());
-        }
-    }
-
-    @Override
-    public List<PersonajeDto> getCities(Long idPelicula) throws SpringException {
-        try{
-            List<PersonajeDto> listaDto = new ArrayList<>();
-            List<PersonajeEntity> lista = personajeRepository.findByPelicula(idPelicula);
-            if(listaDto.isEmpty()){
-                throw new SpringException(ERROR_5);
-            }
-            for(PersonajeEntity entity : lista){
-                listaDto.add(personajeMapper.convertToDto(entity,false));
-            }
-            return listaDto;
-
-        }catch (SpringException e){
-            throw new SpringException(e.getMessage());
-        }
-    }
-
-    @Override
     @Transactional
     public PersonajeDto findById(Long id) throws SpringException {
         try{
