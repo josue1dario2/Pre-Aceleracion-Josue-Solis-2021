@@ -15,7 +15,7 @@ public interface GeneroRepository extends JpaRepository<GeneroEntity,Long> {
 
     List<GeneroEntity> findByFechaDeCreacion(String fecha);
 
-    List<GeneroEntity> findByPaises(Long id);
+    List<GeneroEntity> findByPeliculas(Long id);
 
     List<GeneroEntity> findAll(Specification<GeneroEntity> spec);
 

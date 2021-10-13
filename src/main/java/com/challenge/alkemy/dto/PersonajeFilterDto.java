@@ -8,22 +8,14 @@ import java.util.Set;
 @Getter
 @Setter
 public class PersonajeFilterDto {
-    private String name;
-    private String date;
-    private Set<Long> cities = new HashSet<>();
-    private String order;
+    private String nombre;
+    private String edad;
+    private Set<Long> peliculas = new HashSet<>();
 
-    public PersonajeFilterDto(String name, String date, Set<Long> cities, String order) {
-        this.name = name;
-        this.date = date;
-        this.cities = cities;
-        this.order = order;
+    public PersonajeFilterDto(String nombre, String edad, Set<Long> peliculas) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.peliculas = peliculas;
     }
 
-    public boolean isASC(){
-        return this.order.compareToIgnoreCase("ASC") == 0;
-    }
-    public boolean isDESC(){
-        return this.order.compareToIgnoreCase("DESC") == 0;
-    }
 }

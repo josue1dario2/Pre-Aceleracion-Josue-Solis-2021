@@ -1,5 +1,6 @@
 package com.challenge.alkemy.service.especificacion;
 
+import com.challenge.alkemy.dto.PeliculaFilterDto;
 import com.challenge.alkemy.dto.PersonajeFilterDto;
 import com.challenge.alkemy.entity.PeliculaEntity;
 import com.challenge.alkemy.entity.PersonajeEntity;
@@ -12,15 +13,13 @@ import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class PersonajeEspecificacion {
+public class PeliculaEspecificacion {
 
-    public Specification<PersonajeEntity> getByFilters(PersonajeFilterDto filtersDTO) {
+    public Specification<PersonajeEntity> getByFilters(PeliculaFilterDto filtersDTO) {
         return (root, query, criteriaBuilder) -> {
 
             List<Predicate> predicates = new ArrayList<>();
@@ -30,21 +29,22 @@ public class PersonajeEspecificacion {
                         criteriaBuilder.lower(root.get("nombre")),
                         "%" + filtersDTO.getNombre().toLowerCase() + "%"));
             }
-            if (StringUtils.hasLength(filtersDTO.getEdad())) {
+            if (StringUtils.hasLength(filtersDTO.getIdGenero().toString())) {
                 predicates.add(criteriaBuilder.like(
-                        criteriaBuilder.lower(root.get("edad")),
-                        "%" + filtersDTO.getEdad().toLowerCase() + "%"));
+                        criteriaBuilder.lower(root.get("idGenero")),
+                        "%" + filtersDTO.getIdGenero().toString().toLowerCase() + "%"));
             }
 
-
-            if (!CollectionUtils.isEmpty(filtersDTO.getPeliculas())) {
-                Join<PeliculaEntity, PersonajeEntity> join = root.join("peliculas", JoinType.INNER);
-                Expression<String> citiesId = join.get("id");
-                predicates.add(citiesId.in(filtersDTO.getPeliculas()));
-            }
 
             // Remove duplucates
             query.distinct(true);
+
+            String orderByField = "nombre";
+            query.orderBy(
+                    filtersDTO.isASC() ?
+                            criteriaBuilder.asc(root.get(orderByField)) :
+                            criteriaBuilder.desc(root.get(orderByField))
+            );
 
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
 

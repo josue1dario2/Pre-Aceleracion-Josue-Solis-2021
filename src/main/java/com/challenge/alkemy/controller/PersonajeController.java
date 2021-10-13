@@ -38,12 +38,11 @@ public class PersonajeController {
     }
     @GetMapping(path = "/filtros")
     public ResponseEntity<?> getDetailsByFilters(
-            @RequestParam(required = false)String name,
-            @RequestParam(required = false)String date,
-            @RequestParam(required = false) Set<Long> cities,
-            @RequestParam(required = false,defaultValue = "ASC")String order){
+            @RequestParam(required = false)String nombre,
+            @RequestParam(required = false)String edad,
+            @RequestParam(required = false) Set<Long> paises){
         try{
-            List<PersonajeDto> iconos = personajeService.getByFilters(name,date,cities,order);
+            List<PersonajeDto> iconos = personajeService.getByFilters(nombre,edad,paises);
             return ResponseEntity.ok(iconos);
         }catch (SpringException e){
             return ResponseEntity.status(NOT_FOUND).body(e.getMessage());

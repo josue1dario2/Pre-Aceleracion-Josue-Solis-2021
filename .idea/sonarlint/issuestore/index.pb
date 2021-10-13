@@ -1,8 +1,6 @@
 
 i
 9src/main/java/com/challenge/alkemy/AlkemyApplication.java,d/0/d035f8dcec157b11824c90d01a749c0765e5b7e7
-n
->src/main/java/com/challenge/alkemy/dto/PersonajeFilterDto.java,d/8/d86e0efb37e826ff7b10ff9ba026eb63c493fa96
 e
 5src/main/java/com/challenge/alkemy/dto/GeneroDto.java,d/e/de404c77203e9012d0ee3f9552ee7afc11823773
 }

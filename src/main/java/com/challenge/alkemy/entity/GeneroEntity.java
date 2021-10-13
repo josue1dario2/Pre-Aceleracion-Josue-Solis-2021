@@ -21,4 +21,6 @@ public class GeneroEntity {
     private String imagen;
 
 
+
+
 }

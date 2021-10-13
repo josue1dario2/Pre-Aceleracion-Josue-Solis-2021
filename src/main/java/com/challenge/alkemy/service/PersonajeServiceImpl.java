@@ -55,8 +55,8 @@ public class PersonajeServiceImpl implements PersonajeService <PersonajeDto,Long
         }
     }
     @Transactional
-    public List<PersonajeDto> getByFilters(String name, String date, Set<Long> cities, String order) throws SpringException {
-        PersonajeFilterDto filtersDTO = new PersonajeFilterDto(name, date, cities, order);
+    public List<PersonajeDto> getByFilters(String nombre, String edad, Set<Long> paises) throws SpringException {
+        PersonajeFilterDto filtersDTO = new PersonajeFilterDto(nombre, edad, paises);
         List<PersonajeEntity> entities = personajeRepository.findAll(personajeEspecificacion.getByFilters(filtersDTO));
         List<PersonajeDto> dtos = personajeMapper.convertEntityToDtoList(entities,true);
         return dtos;

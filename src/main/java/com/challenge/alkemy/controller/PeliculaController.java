@@ -1,11 +1,15 @@
 package com.challenge.alkemy.controller;
 
 import com.challenge.alkemy.dto.PeliculaDto;
+import com.challenge.alkemy.dto.PersonajeDto;
 import com.challenge.alkemy.exception.SpringException;
 import com.challenge.alkemy.service.PeliculaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Set;
 
 import static org.springframework.http.HttpStatus.*;
 
@@ -68,6 +72,19 @@ public class PeliculaController {
         }catch (SpringException e){
             return ResponseEntity.status(NOT_FOUND).body(e.getMessage());
         }
+    }
+    @GetMapping(path = "/filtros")
+    public ResponseEntity<?> getDetailsByFilters(
+            @RequestParam(required = false)String nombre,
+            @RequestParam(required = false) Long idGenero,
+            @RequestParam(required = false,defaultValue = "ASC")String order){
+        try{
+            List<PersonajeDto> iconos = peliculaService.getByFilters(nombre,idGenero,order);
+            return ResponseEntity.ok(iconos);
+        }catch (SpringException e){
+            return ResponseEntity.status(NOT_FOUND).body(e.getMessage());
+        }
+
     }
 
 
