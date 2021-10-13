@@ -20,6 +20,6 @@ public class PersonajeDto {
     private Integer edad;
     private Double peso;
     private String historia;
-    private List<PeliculaEntity> peliculas = new ArrayList<>();
+    private List<PeliculaDto> peliculas = new ArrayList<>();
 
 }

@@ -21,6 +21,6 @@ public class PeliculaDto {
     private String fechaDeCreacion;
     private Integer calificacion;
     private Long generoId;
-    private List<PersonajeEntity> personajes = new ArrayList<>();
+    private List<PersonajeDto> personajes = new ArrayList<>();
 
 }

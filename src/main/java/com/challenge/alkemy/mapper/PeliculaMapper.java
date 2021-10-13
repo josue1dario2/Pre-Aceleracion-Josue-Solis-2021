@@ -18,7 +18,7 @@ public class PeliculaMapper {
     @Autowired
     PersonajeMapper personajeMapper;
 
-    public PeliculaEntity convertToEntity(PeliculaDto dto){
+    public PeliculaEntity convertToEntity(PeliculaDto dto) throws SpringException {
         PeliculaEntity entity = new PeliculaEntity();
 
         entity.setTitulo(dto.getTitulo());
@@ -63,7 +63,7 @@ public class PeliculaMapper {
         }
         return  dtos;
     }
-    public List<PeliculaEntity> convertToEntityList(List<PeliculaDto> dtos){
+    public List<PeliculaEntity> convertToEntityList(List<PeliculaDto> dtos) throws SpringException {
         List<PeliculaEntity> peliculas = new ArrayList<>();
         for(PeliculaDto dto : dtos){
             peliculas.add(convertToEntity(dto));
