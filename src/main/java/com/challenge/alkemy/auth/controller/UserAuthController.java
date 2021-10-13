@@ -30,14 +30,14 @@ public class UserAuthController {
     @Autowired
     private JwtUtils jwtTokenUtil;
 
-    @PostMapping("/singup")
+    @PostMapping("/login")
     public ResponseEntity<?> singUp( @RequestBody UsuarioDto user) throws Exception {
 
         this.userDetailsService.save(user);
 
         return ResponseEntity.status(CREATED).build();
     }
-    @PostMapping("/singin")
+    @PostMapping("/register")
     public ResponseEntity<?> singIn(@RequestBody AuthenticationRequest authRequest) throws Exception {
 
         UserDetails userDetails;
