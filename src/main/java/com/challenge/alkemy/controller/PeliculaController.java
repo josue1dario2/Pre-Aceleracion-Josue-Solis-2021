@@ -11,7 +11,7 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/peliculas")
+@RequestMapping(path = "/movies")
 public class PeliculaController {
 
     @Autowired

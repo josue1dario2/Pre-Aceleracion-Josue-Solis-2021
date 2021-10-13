@@ -11,7 +11,7 @@ import static org.springframework.http.HttpStatus.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(path = "/generos")
+@RequestMapping(path = "/genres")
 public class GeneroController {
 
     @Autowired
